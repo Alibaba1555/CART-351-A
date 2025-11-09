@@ -159,3 +159,22 @@ footer {
   padding: 2rem 0;
   border-top: 1px solid rgba(255,255,255,0.06);
 }
+
+/* Beat flash */
+.cell.now {
+  box-shadow: 0 0 14px rgba(63,169,245,.9), inset 0 0 6px rgba(255,255,255,.25);
+  border-color: #9bd2ff;
+}
+.cell.now:not(.on) {
+  background: #26314a;
+}
+
+.cell.flash {
+  animation: beatFlash .18s ease-out;
+}
+
+@keyframes beatFlash {
+  0%   { transform: scale(1.00); }
+  35%  { transform: scale(1.10); }
+  100% { transform: scale(1.00); }
+}
