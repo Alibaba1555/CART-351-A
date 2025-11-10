@@ -277,3 +277,52 @@ async function clearServerData(){
     alert("Failed to clear.");
   }
 }
+
+// recording
+let recorder = null;
+let recBlob = null;
+let recUrl = null;
+
+function ensureRecorder(){
+  if (!recorder){
+    recorder = new Tone.Recorder();
+    Tone.getDestination().connect(recorder);
+  }
+  return recorder;
+}
+
+async function startRecording(){
+  await Tone.start();
+  ensureRecorder();
+  const a = $("#recDownload");
+  a.style.display = "none";
+  if (recUrl){ URL.revokeObjectURL(recUrl); recUrl = null; }
+  recBlob = null;
+  recorder.start();
+  $("#recStart").textContent = "Recording...";
+  $("#recStart").disabled = true;
+  $("#recStop").disabled = false;
+}
+
+async function stopRecording(){
+  if (!recorder) return;
+  const blob = await recorder.stop();
+  recBlob = blob;
+  recUrl = URL.createObjectURL(blob);
+  const a = $("#recDownload");
+  a.href = recUrl;
+  a.style.display = "inline-block";
+  $("#recStart").textContent = "Start Recording";
+  $("#recStart").disabled = false;
+  $("#recStop").disabled = true;
+}
+
+window.addEventListener("DOMContentLoaded", ()=>{
+  const btnStart = $("#recStart");
+  const btnStop = $("#recStop");
+  if (btnStart && btnStop){
+    btnStop.disabled = true;
+    btnStart.onclick = startRecording;
+    btnStop.onclick = stopRecording;
+  }
+});

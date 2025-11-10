@@ -260,3 +260,77 @@ footer {
   box-shadow: 0 0 8px #3fa9f550;
 }
 
+/* ===== RECORDING CONTROL BAR ===== */
+.meta2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+  padding: 0.8rem 1rem;
+  background: #151821;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.meta2 button {
+  font-size: 0.95rem;
+  border-radius: 8px;
+  padding: 0.45rem 1rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #f0f0f0;
+  background: #1c2030;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.meta2 button:hover {
+  background: #242a3b;
+  border-color: #3fa9f5;
+  color: #3fa9f5;
+}
+
+/* Start / Stop colors */
+#recStart {
+  background: #e44;
+  border-color: #c33;
+  color: #fff;
+  font-weight: 600;
+}
+#recStart:hover {
+  background: #f55;
+  box-shadow: 0 0 8px #f44a;
+}
+#recStop {
+  background: #33384d;
+  border-color: #555b77;
+}
+#recStop:hover {
+  background: #444b64;
+  border-color: #3fa9f5;
+  color: #3fa9f5;
+}
+
+/* Flash animation while recording */
+#recStart.recording {
+  animation: blinkRec 1s infinite;
+}
+@keyframes blinkRec {
+  0%, 50% { background: #e44; box-shadow: 0 0 8px #f44; }
+  51%, 100% { background: #a11; box-shadow: 0 0 4px #a11; }
+}
+
+/* Download link */
+#recDownload {
+  color: #3fa9f5;
+  font-size: 0.9rem;
+  text-decoration: none;
+  margin-left: 0.4rem;
+  border-bottom: 1px dashed transparent;
+  transition: 0.2s;
+}
+#recDownload:hover {
+  border-bottom-color: #3fa9f5;
+  color: #63c0ff;
+}
