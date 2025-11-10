@@ -201,15 +201,6 @@ footer {
   box-shadow: 0 0 6px #3fa9f580;
 }
 
-/* Optional: add a dropdown arrow using ::after */
-#kit::-ms-expand { display: none; }
-#kit::after {
-  content: "▼";
-  position: absolute;
-  right: 10px;
-  color: #999;
-}
-
 /* ===== COMMENT / RECENT SECTION ===== */
 .melody-list {
   margin-top: 1rem;
