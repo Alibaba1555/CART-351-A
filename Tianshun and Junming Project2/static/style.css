@@ -269,7 +269,3 @@ footer {
   box-shadow: 0 0 8px #3fa9f550;
 }
 
-.melody-card[data-kit="8bit"]   { border-left-color: #e6c44f; }
-.melody-card[data-kit="techno"] { border-left-color: #ff55aa; }
-.melody-card[data-kit="acoustic"] { border-left-color: #58d168; }
-.melody-card[data-kit="trap"]   { border-left-color: #c275ff; }
