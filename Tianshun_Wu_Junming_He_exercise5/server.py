@@ -26,9 +26,11 @@ db_user = os.getenv('MONGODB_USER')
 db_pass = os.getenv('DATABASE_PASSWORD')
 db_name = os.getenv('DATABASE_NAME')
 
+
 app = Flask(__name__)
 
-uri = f"mongodb+srv://{db_user}:{db_pass}@cluster0.m0zbvgi.mongodb.net/{db_name}?retryWrites=true&w=majority"
+
+uri = f"mongodb+srv://{db_user}:{db_pass}@cluster0.cqzgv05.mongodb.net/{db_name}?retryWrites=true&w=majority"
  # Replace with your MongoDB Atlas connection string
 app.config["MONGO_URI"] = uri
 mongo = PyMongo(app)
@@ -49,13 +51,13 @@ def insertData():
     print("here")
     data =[]
     for i in range(1000):
-        a = random.randrange(0,6)
-        b = random.randrange(0,7)
-        c = random.randrange(0,9)
-        d = random.randrange(0,9)
-        e = random.randrange(1,10)
-        f = random.randrange(1,10)
-        g = random.randrange(1,17)
+        a = random.randrange(0, len(days))
+        b = random.randrange(0, len(weather))
+        c = random.randrange(0, len(moods))
+        d = random.randrange(0, len(moods))
+        e = random.randrange(1,11)
+        f = random.randrange(1,11)
+        g = random.randrange(0, len(event_names))
         singleEntry ={}
         singleEntry["dataId"] = i+1
         singleEntry["day"]=days[a]
@@ -160,4 +162,3 @@ def six():
 
 
 app.run(debug = True)
-
